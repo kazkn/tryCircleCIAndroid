@@ -10,5 +10,5 @@ checkstyle_format.report 'app/build/reports/ktlint/ktlint-release.xml'
 
 # Android Lint
 require 'android_lint_translate_checkstyle_format'
-android_lint_xml = ::AndroidLintTranslateCheckstyleFormat::Script.translate(File.read('app/build/reports/lint-results.xml'))
+android_lint_xml = ::AndroidLintTranslateCheckstyleFormat::Script.translate(File.read('app/build/reports/lint-results-release.xml'))
 checkstyle_format.report_by_text android_lint_xml
