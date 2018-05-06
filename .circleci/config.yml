@@ -28,11 +28,11 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
     　- run:
           name: Build
-          command: ./gradlew assemble${APP_BUILD_TYPE^}
+          command: ./gradlew assembleRelease
       - run:
           name: Checks(ktlint, Android Lint)
           command: |
-            ./gradlew ktlint${APP_BUILD_TYPE^}Check lint${APP_BUILD_TYPE^}
+            ./gradlew ktlintReleaseCheck lintRelease
             bundle exec danger
       # - run:
       #     name: Run Tests
