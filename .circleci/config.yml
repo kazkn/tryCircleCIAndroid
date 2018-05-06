@@ -24,16 +24,16 @@ jobs:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-          name: Run klint check
-          command: ./gradlew ktlintReleaseCheck
-      - run:
-          name: Run Tests
-          command: ./gradlew lint test
+          name: Run check(ktlint, Android Lint)
+          command: ./gradlew ktlintReleaseCheck lintRelease
+      # - run:
+      #     name: Run Tests
+      #     command: ./gradlew lint test
       - run:
           name: Report by Danger
           command: bundle exec danger
       - store_artifacts:
           path: app/build/reports
           destination: reports
-      - store_test_results:
-          path: app/build/test-results
+      # - store_test_results:
+      #     path: app/build/test-results
