@@ -37,7 +37,7 @@ jobs:
           destination: reports
       # - store_test_results:
       #     path: app/build/test-results
-  lint:
+  Lint Check:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-27-alpha
@@ -64,7 +64,7 @@ jobs:
           destination: reports
 workflows:
   version: 2
-  build_and_test:
+  push:
     jobs:
-      - lint
+      - Lint Check
       - build
